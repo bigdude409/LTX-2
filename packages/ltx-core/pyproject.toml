@@ -18,9 +18,9 @@ dependencies = [
 [project.optional-dependencies]
 xformers = ["xformers"]
 fp8-trtllm = [
-    "tensorrt-llm==1.0.0",
-    "onnx>=1.16.0,<1.20.0",
-    "openmpi",
+    "tensorrt-llm==1.0.0 ; sys_platform == 'linux'",
+    "onnx>=1.16.0,<1.20.0 ; sys_platform == 'linux'",
+    "openmpi ; sys_platform == 'linux'",
 ]
 
 [tool.uv]
@@ -32,6 +32,12 @@ conflicts = [
 ]
 
 [tool.uv.sources]
+torch = [
+    { index = "pytorch", marker = "sys_platform == 'win32' and extra == 'xformers'" },
+]
+torchvision = [
+    { index = "pytorch", marker = "sys_platform == 'win32' and extra == 'xformers'" },
+]
 xformers = { index = "pytorch" }
 tensorrt-llm = { index = "nvidia" }
 
