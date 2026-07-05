@@ -38,12 +38,15 @@ torch = [
 torchvision = [
     { index = "pytorch", marker = "sys_platform == 'win32' and extra == 'xformers'" },
 ]
+torchaudio = [
+    { index = "pytorch", marker = "sys_platform == 'win32' and extra == 'xformers'" },
+]
 xformers = { index = "pytorch" }
 tensorrt-llm = { index = "nvidia" }
 
 [[tool.uv.index]]
 name = "pytorch"
-url = "https://download.pytorch.org/whl/cu129"
+url = "https://download.pytorch.org/whl/cu130"
 explicit = true
 
 [[tool.uv.index]]
